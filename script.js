@@ -63,23 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Démarrer le mouvement automatique des yeux
     startAutoEyeMovement();
     
-    // Carrousel de publicités dans la tablette
-    const adSlides = document.querySelectorAll('.ad-slide');
-    let currentSlide = 0;
-    
-    function showNextSlide() {
-        // Masquer la slide actuelle
-        adSlides[currentSlide].classList.remove('active');
-        
-        // Passer à la slide suivante
-        currentSlide = (currentSlide + 1) % adSlides.length;
-        
-        // Afficher la nouvelle slide
-        adSlides[currentSlide].classList.add('active');
-    }
-    
-    // Changer de slide toutes les 3 secondes
-    setInterval(showNextSlide, 3000);
+
     
     // Animation de pulsation pour les statistiques
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -139,20 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajouter l'effet de parallaxe au scroll
     window.addEventListener('scroll', parallaxEffect);
     
-    // Animation du connecteur infini
-    const infinityConnector = document.querySelector('.infinity-connector');
-    
-    function animateInfinityConnector() {
-        infinityConnector.style.transform = 'translate(-50%, -50%) scaleX(1.2)';
-        infinityConnector.style.transition = 'transform 0.5s ease';
-        
-        setTimeout(() => {
-            infinityConnector.style.transform = 'translate(-50%, -50%) scaleX(1)';
-        }, 500);
-    }
-    
-    // Animer le connecteur infini toutes les 4 secondes
-    setInterval(animateInfinityConnector, 4000);
+
     
     // Effet de hover sur les boutons CTA
     const ctaButtons = document.querySelectorAll('.btn-primary, .btn-secondary');
@@ -297,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function debugAnimations() {
     console.log('État des animations:');
     console.log('- Yeux:', document.querySelectorAll('.eye').length);
-    console.log('- Slides publicitaires:', document.querySelectorAll('.ad-slide').length);
     console.log('- Tablettes flottantes:', document.querySelectorAll('.tablet').length);
 }
 

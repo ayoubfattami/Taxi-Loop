@@ -39,7 +39,6 @@
                                 <span class="pupil"></span>
                             </span>
                         </span>
-                        <span class="infinity-connector"></span>
                         <span class="eye-container">
                             <span class="eye right-eye">
                                 <span class="pupil"></span>
@@ -66,29 +65,6 @@
                 <div class="cta-buttons">
                     <button class="btn-primary">Découvrir nos solutions</button>
                     <button class="btn-secondary">Voir la démo</button>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <div class="taxi-mockup">
-                    <div class="taxi-body">
-                        <div class="tablet-screen">
-                            <div class="ad-content">
-                                <div class="ad-slide active">
-                                    <h3>Publicité 1</h3>
-                                    <p>Votre message ici</p>
-                                </div>
-                                <div class="ad-slide">
-                                    <h3>Publicité 2</h3>
-                                    <p>Impact maximal</p>
-                                </div>
-                                <div class="ad-slide">
-                                    <h3>Publicité 3</h3>
-                                    <p>Audience captive</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </main>
