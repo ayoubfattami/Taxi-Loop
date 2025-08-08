@@ -122,6 +122,37 @@
         </div>
     </section>
     
+    <!-- Section Categories -->
+    <section class="categories-section">
+        <div class="categories-wrapper">
+            <div class="categories-grid">
+                <div class="category-block">
+                    <div class="category-image">
+                        <img src="assets/images/section3-img1.jpg" alt="Hôtels, villas & riads" class="category-img">
+                    </div>
+                    <h3 class="category-title">Hôtels, villas & riads</h3>
+                    <p class="category-text">Touchez une clientèle touristique en immersion, à quelques minutes de leur prochain lieu de séjour.</p>
+                </div>
+                
+                <div class="category-block">
+                    <div class="category-image">
+                        <img src="assets/images/section3-img2.jpg" alt="Restaurants & cafés" class="category-img">
+                    </div>
+                    <h3 class="category-title">Restaurants & cafés</h3>
+                    <p class="category-text">Influencez les choix gourmands dès le trajet</p>
+                </div>
+                
+                <div class="category-block">
+                    <div class="category-image">
+                        <img src="assets/images/section3-img3.jpg" alt="Culture & expositions" class="category-img">
+                    </div>
+                    <h3 class="category-title">Culture & expositions</h3>
+                    <p class="category-text">Attirez les curieux, les flâneurs et les passionnés d'art avec des contenus culturels percutants et bien placés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>
