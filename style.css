@@ -282,9 +282,8 @@ body {
 
 .cta-buttons {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .btn-primary, .btn-secondary {
@@ -325,22 +324,7 @@ body {
 
 
 /* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
 
-.scroll-arrow {
-    width: 30px;
-    height: 30px;
-    border-right: 3px solid var(--primary-yellow);
-    border-bottom: 3px solid var(--primary-yellow);
-    transform: rotate(45deg);
-    animation: bounce 2s infinite;
-}
 
 /* Animations */
 @keyframes slideInLeft {
@@ -458,6 +442,11 @@ body {
     
     .cta-buttons {
         justify-content: center;
+        align-items: center;
+    }
+    
+    .btn-primary {
+        max-width: 300px;
     }
     
     .nav-menu {
@@ -505,13 +494,12 @@ body {
     }
     
     .cta-buttons {
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 15px;
     }
     
-    .btn-primary, .btn-secondary {
+    .btn-primary {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
     }
 }

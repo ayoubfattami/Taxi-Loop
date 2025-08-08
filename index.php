@@ -63,8 +63,7 @@
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <button class="btn-primary">Découvrir nos solutions</button>
-                    <button class="btn-secondary">Voir la démo</button>
+                    <button class="btn-primary">Réserver une campagne</button>
                 </div>
             </div>
         </main>
