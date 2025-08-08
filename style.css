@@ -951,3 +951,146 @@ body {
         display: block;
     }
 }
+
+/* Section Clients Carrousel */
+.taxi-loop-clients-showcase {
+    background: #000000;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.taxi-loop-clients-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.taxi-loop-clients-main-title {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 1.2;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.taxi-loop-clients-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.taxi-loop-clients-carousel-track {
+    display: flex;
+    width: calc(200% + 40px);
+    animation: taxi-loop-scroll-infinite 20s linear infinite;
+    gap: 40px;
+}
+
+.taxi-loop-client-logo-item {
+    flex: 0 0 auto;
+    width: 280px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.taxi-loop-client-logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.taxi-loop-client-logo-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 215, 0, 0.3);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15);
+}
+
+.taxi-loop-client-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0.9) contrast(1.1);
+    transition: filter 0.3s ease;
+}
+
+.taxi-loop-client-logo-item:hover .taxi-loop-client-logo-img {
+    filter: brightness(1.1) contrast(1.2);
+}
+
+@keyframes taxi-loop-scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 20px));
+    }
+}
+
+/* Responsive Design pour le carrousel clients */
+@media (max-width: 768px) {
+    .taxi-loop-clients-showcase {
+        padding: 60px 0;
+    }
+    
+    .taxi-loop-clients-wrapper {
+        padding: 0 15px;
+    }
+    
+    .taxi-loop-clients-main-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .taxi-loop-clients-carousel-track {
+        gap: 25px;
+        animation-duration: 15s;
+    }
+    
+    .taxi-loop-client-logo-item {
+        width: 220px;
+        height: 150px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .taxi-loop-clients-showcase {
+        padding: 40px 0;
+    }
+    
+    .taxi-loop-clients-main-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .taxi-loop-clients-carousel-track {
+        gap: 20px;
+        animation-duration: 12s;
+    }
+    
+    .taxi-loop-client-logo-item {
+        width: 180px;
+        height: 120px;
+        padding: 22px;
+    }
+    
+    .taxi-loop-clients-carousel-container {
+        mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+        -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+    }
+}

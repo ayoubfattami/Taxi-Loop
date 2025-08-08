@@ -153,6 +153,66 @@
         </div>
     </section>
     
+    <!-- Section Clients Carrousel -->
+    <section class="taxi-loop-clients-showcase">
+        <div class="taxi-loop-clients-wrapper">
+            <h2 class="taxi-loop-clients-main-title">Nos Clients</h2>
+            <div class="taxi-loop-clients-carousel-container">
+                <div class="taxi-loop-clients-carousel-track">
+                    <a href="https://unlimitedmarrakech.fr/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/1.png" alt="Client 1" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://rentall.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/2.png" alt="Client 2" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="#" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+                        <img src="assets/Logo/3.png" alt="Client 3" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://rentaphone.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/4.png" alt="Client 4" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://almaadenvillahotel.com/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/5.png" alt="Client 5" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://www.venuspop.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/6.png" alt="Client 6" class="taxi-loop-client-logo-img">
+                    </a>
+                    <!-- Duplication pour l'effet infini -->
+                    <a href="https://unlimitedmarrakech.fr/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/1.png" alt="Client 1" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://rentall.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/2.png" alt="Client 2" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="#" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+                        <img src="assets/Logo/3.png" alt="Client 3" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://rentaphone.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/4.png" alt="Client 4" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://almaadenvillahotel.com/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/5.png" alt="Client 5" class="taxi-loop-client-logo-img">
+                    </a>
+                    <a href="https://www.venuspop.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
+                        <img src="assets/Logo/6.png" alt="Client 6" class="taxi-loop-client-logo-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
