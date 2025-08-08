@@ -1095,6 +1095,220 @@ body {
     }
 }
 
+/* Contact Form Styles */
+.taxi-loop-contact-form-section {
+    background-color: #000;
+    padding: 80px 0;
+    position: relative;
+}
+
+.taxi-loop-contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.taxi-loop-contact-form-wrapper {
+    background-color: #000;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.taxi-loop-form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.taxi-loop-form-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.taxi-loop-form-error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.taxi-loop-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.taxi-loop-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.taxi-loop-form-label {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.taxi-loop-custom-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.taxi-loop-select {
+    width: 100%;
+    padding: 15px 45px 15px 15px;
+    background-color: #FFD700;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #000;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.taxi-loop-select:focus {
+    outline: none;
+    border-color: #FFA500;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.taxi-loop-select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    color: #000;
+}
+
+.taxi-loop-select-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.taxi-loop-form-input,
+.taxi-loop-form-textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #FFD700;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #000;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.taxi-loop-form-input:focus,
+.taxi-loop-form-textarea:focus {
+    outline: none;
+    border-color: #FFA500;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.taxi-loop-form-input::placeholder,
+.taxi-loop-form-textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.taxi-loop-form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.taxi-loop-form-submit {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #FFD700;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.taxi-loop-form-submit:hover {
+    background-color: #FFD700;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.taxi-loop-form-submit:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for Contact Form */
+@media (max-width: 768px) {
+    .taxi-loop-contact-form-section {
+        padding: 60px 0;
+    }
+    
+    .taxi-loop-contact-form-wrapper {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .taxi-loop-form-label {
+        font-size: 14px;
+    }
+    
+    .taxi-loop-select,
+    .taxi-loop-form-input,
+    .taxi-loop-form-textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .taxi-loop-form-submit {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .taxi-loop-contact-form-section {
+        padding: 40px 0;
+    }
+    
+    .taxi-loop-contact-form-wrapper {
+        padding: 25px 15px;
+        border-radius: 10px;
+    }
+    
+    .taxi-loop-contact-form {
+        gap: 20px;
+    }
+    
+    .taxi-loop-select,
+    .taxi-loop-form-input,
+    .taxi-loop-form-textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .taxi-loop-form-textarea {
+        min-height: 100px;
+    }
+}
+
 /* Section Footer Contact */
 .taxi-loop-footer-contact {
     background: #000000;

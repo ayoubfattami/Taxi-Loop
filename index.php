@@ -1,3 +1,42 @@
+<?php
+// Traitement du formulaire de contact
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $business_category = $_POST['business_category'] ?? '';
+    $full_name = $_POST['full_name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $message = $_POST['message'] ?? '';
+    
+    // Validation des données
+    if (!empty($business_category) && !empty($full_name) && !empty($email) && !empty($phone) && !empty($message)) {
+        // Configuration de l'email
+        $to = 'contact@taxiloop.ma';
+        $subject = 'Nouvelle demande de contact - Taxi Loop';
+        
+        // Corps de l'email
+        $email_body = "Nouvelle demande de contact:\n\n";
+        $email_body .= "Secteur d'activité: " . $business_category . "\n";
+        $email_body .= "Nom complet: " . $full_name . "\n";
+        $email_body .= "Email: " . $email . "\n";
+        $email_body .= "Téléphone: " . $phone . "\n";
+        $email_body .= "Message: " . $message . "\n";
+        
+        // Headers de l'email
+        $headers = "From: " . $email . "\r\n";
+        $headers .= "Reply-To: " . $email . "\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        
+        // Envoi de l'email
+        if (mail($to, $subject, $email_body, $headers)) {
+            $success_message = "Votre message a été envoyé avec succès !";
+        } else {
+            $error_message = "Erreur lors de l'envoi du message. Veuillez réessayer.";
+        }
+    } else {
+        $error_message = "Veuillez remplir tous les champs.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -167,7 +206,8 @@
 
                         <img src="assets/Logo/2.png" alt="Client 2" class="taxi-loop-client-logo-img">
                     </a>
-                    <a href="#" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+                    <a href="https://www.saphyyrevents.fr/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
                         <img src="assets/Logo/3.png" alt="Client 3" class="taxi-loop-client-logo-img">
                     </a>
                     <a href="https://rentaphone.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
@@ -191,7 +231,8 @@
 
                         <img src="assets/Logo/2.png" alt="Client 2" class="taxi-loop-client-logo-img">
                     </a>
-                    <a href="#" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+                    <a href="https://www.saphyyrevents.fr/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
+
                         <img src="assets/Logo/3.png" alt="Client 3" class="taxi-loop-client-logo-img">
                     </a>
                     <a href="https://rentaphone.ma/" target="_blank" class="taxi-loop-client-logo-item taxi-loop-client-logo-link">
@@ -211,8 +252,10 @@
         </div>
     </section>
     
+    
+    
     <!-- Section Footer Contact -->
-    <footer class="taxi-loop-footer-contact">
+    <div class="taxi-loop-footer-contact">
         <div class="taxi-loop-footer-wrapper">
             <div class="taxi-loop-footer-logo">
                 <img src="assets/images/logo-taxi-loop.png" alt="Taxi Loop Logo" class="taxi-loop-footer-logo-img">
@@ -241,7 +284,80 @@
                 </div>
             </div>
         </div>
-    </footer>
+</div>
+
+
+
+
+
+
+<!-- Section Formulaire de Contact -->
+    <section class="taxi-loop-contact-form-section">
+        <div class="taxi-loop-contact-form-container">
+            <div class="taxi-loop-contact-form-wrapper">
+                <?php if (isset($success_message)): ?>
+                    <div class="taxi-loop-form-message taxi-loop-form-success">
+                        <?php echo $success_message; ?>
+                    </div>
+                <?php endif; ?>
+                
+                <?php if (isset($error_message)): ?>
+                    <div class="taxi-loop-form-message taxi-loop-form-error">
+                        <?php echo $error_message; ?>
+                    </div>
+                <?php endif; ?>
+                
+                <form class="taxi-loop-contact-form" method="POST" action="">
+                    <div class="taxi-loop-form-group">
+                        <label for="business-category" class="taxi-loop-form-label">Quel univers représente votre marque ?</label>
+                        <div class="taxi-loop-custom-select">
+                            <select id="business-category" name="business_category" class="taxi-loop-select" required>
+                                <option value="" disabled selected>Sélectionnez votre secteur</option>
+                                <option value="hebergement-tourisme">Hébergement & Tourisme</option>
+                                <option value="restauration-lifestyle">Restauration & Lifestyle</option>
+                                <option value="culture-loisirs">Culture & Loisirs</option>
+                                <option value="commerces-concepts">Commerces & Concepts</option>
+                                <option value="bien-etre-beaute">Bien-être & Beauté</option>
+                                <option value="communication-services">Communication & Services</option>
+                                <option value="sante-services-medicaux">Santé & Services médicaux</option>
+                                <option value="autres-sur-mesure">Autres / Sur-mesure</option>
+                            </select>
+                            <div class="taxi-loop-select-arrow">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M7 10l5 5 5-5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="taxi-loop-form-group">
+                        <label for="full-name" class="taxi-loop-form-label">Nom complet</label>
+                        <input type="text" id="full-name" name="full_name" class="taxi-loop-form-input" required>
+                    </div>
+                    
+                    <div class="taxi-loop-form-group">
+                        <label for="email" class="taxi-loop-form-label">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" class="taxi-loop-form-input" required>
+                    </div>
+                    
+                    <div class="taxi-loop-form-group">
+                        <label for="phone" class="taxi-loop-form-label">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" class="taxi-loop-form-input" required>
+                    </div>
+                    
+                    <div class="taxi-loop-form-group">
+                        <label for="message" class="taxi-loop-form-label">Demande</label>
+                        <textarea id="message" name="message" class="taxi-loop-form-textarea" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="taxi-loop-form-submit">ENVOYER</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
     
     <script src="script.js"></script>
 </body>
