@@ -116,8 +116,8 @@
     <section class="no-sector-section">
         <div class="no-sector-wrapper">
             <div class="no-sector-content">
-                <p class="no-sector-text">Pas de secteur imposé : nous diffusons pour les hôtels, riads, cafés, expositions, clubs, concept stores, salles de sport, cabinets esthétiques, agences de communication, et bien plus encore.</p>
-                <p class="no-sector-text">Profitez de la mobilité des taxis pour capter l'attention d'un public actif, local et international, en plein moment de disponibilité.</p>
+                <h2 class="no-sector-title">Pas de secteur imposé : nous diffusons pour les hôtels, riads, cafés, expositions, clubs, concept stores, salles de sport, cabinets esthétiques, agences de communication, et bien plus encore.</h2>
+                <p class="no-sector-subtitle">Profitez de la mobilité des taxis pour capter l'attention d'un public actif, local et international, en plein moment de disponibilité.</p>
             </div>
         </div>
     </section>

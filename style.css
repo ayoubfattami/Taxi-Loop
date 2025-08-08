@@ -475,7 +475,7 @@ body {
 /* No Sector Section */
 .no-sector-section {
     background-color: #000000;
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .no-sector-wrapper {
@@ -485,19 +485,27 @@ body {
 }
 
 .no-sector-content {
-    max-width: 800px;
+    max-width: 100%;
 }
 
-.no-sector-text {
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
+.no-sector-title {
+    color: #FFFFFF;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
     text-align: left !important;
+    font-weight: 400;
 }
 
-.no-sector-text:last-child {
+.no-sector-subtitle {
+    color: #CCCCCC;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
     margin-bottom: 0;
+    text-align: left !important;
+    font-weight: 400;
 }
 
 /* Opportunities Showcase */
@@ -664,29 +672,39 @@ body {
       
       /* No Sector Section - Tablet */
       .no-sector-section {
-          padding: 50px 0;
+          padding: 60px 0;
       }
       
-      .no-sector-text {
-          font-size: 17px;
-          text-align: left !important;
+      .no-sector-title {
+          font-size: 1.8rem;
+          line-height: 1.4;
+          margin-bottom: 25px;
+      }
+      
+      .no-sector-subtitle {
+          font-size: 0.85rem;
       }
 }
 
 @media (max-width: 480px) {
       /* No Sector Section - Mobile */
       .no-sector-section {
-          padding: 40px 0;
+          padding: 50px 0;
       }
       
       .no-sector-wrapper {
-          padding: 0 20px;
+          padding: 0 15px;
       }
       
-      .no-sector-text {
-          font-size: 16px;
-          text-align: left !important;
-          margin-bottom: 16px;
+      .no-sector-title {
+          font-size: 1.5rem;
+          line-height: 1.4;
+          margin-bottom: 20px;
+      }
+      
+      .no-sector-subtitle {
+          font-size: 0.8rem;
+          line-height: 1.5;
       }
     
     .nav-menu {
