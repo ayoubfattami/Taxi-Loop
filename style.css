@@ -164,12 +164,16 @@ body {
     padding: 60px 20px;
     position: relative;
     z-index: 10;
+    width: 100%;
+    min-height: calc(100vh - 140px);
 }
 
 .hero-text {
     animation: slideInLeft 1s ease-out;
     text-align: center;
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -189,9 +193,11 @@ body {
 .loop-text {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--primary-yellow);
     text-shadow: var(--shadow-glow);
     position: relative;
+    flex-wrap: wrap;
 }
 
 .letter {
@@ -250,6 +256,8 @@ body {
     display: flex;
     gap: 40px;
     margin-bottom: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .stat {
@@ -276,6 +284,7 @@ body {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn-primary, .btn-secondary {
@@ -424,6 +433,15 @@ body {
         padding: 40px 15px;
     }
     
+    .loop-text {
+        justify-content: center;
+        gap: 2px;
+    }
+    
+    .eye-container {
+        margin: 0 2px;
+    }
+    
     .hero-stats {
         justify-content: center;
         gap: 20px;
@@ -446,6 +464,20 @@ body {
 @media (max-width: 480px) {
     .hero-content {
         padding: 40px 15px;
+    }
+    
+    .hero-title {
+        text-align: center;
+    }
+    
+    .loop-text {
+        justify-content: center;
+        gap: 1px;
+        flex-wrap: nowrap;
+    }
+    
+    .eye-container {
+        margin: 0 1px;
     }
     
     .hero-stats {

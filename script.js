@@ -9,8 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour faire suivre le curseur par les yeux
     function followCursor(e) {
+        if (pupils.length === 0 || eyes.length === 0) return;
+        
         pupils.forEach((pupil, index) => {
             const eye = eyes[index];
+            if (!eye || !pupil) return;
+            
             const eyeRect = eye.getBoundingClientRect();
             const eyeCenterX = eyeRect.left + eyeRect.width / 2;
             const eyeCenterY = eyeRect.top + eyeRect.height / 2;
@@ -28,19 +32,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Ajouter l'événement de suivi du curseur
-    document.addEventListener('mousemove', followCursor);
+    // Ajouter l'événement de suivi du curseur seulement si les éléments existent
+    if (pupils.length > 0 && eyes.length > 0) {
+        document.addEventListener('mousemove', followCursor);
+    }
     
     // Animation automatique des yeux quand pas de mouvement de souris
     let mouseTimeout;
     let autoEyeMovement;
     
     function startAutoEyeMovement() {
+        if (pupils.length === 0) return;
+        
         autoEyeMovement = setInterval(() => {
             const randomAngle = Math.random() * Math.PI * 2;
             const randomDistance = Math.random() * 15;
             
             pupils.forEach(pupil => {
+                if (!pupil) return;
                 const pupilX = Math.cos(randomAngle) * randomDistance;
                 const pupilY = Math.sin(randomAngle) * randomDistance;
                 pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
@@ -140,13 +149,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation de clignotement aléatoire pour les yeux
     function randomBlink() {
+        if (eyes.length === 0) return;
+        
         eyes.forEach(eye => {
+            if (!eye) return;
             if (Math.random() < 0.3) {
                 eye.style.transform = 'scaleY(0.1)';
                 eye.style.transition = 'transform 0.1s ease';
                 
                 setTimeout(() => {
-                    eye.style.transform = 'scaleY(1)';
+                    if (eye) {
+                        eye.style.transform = 'scaleY(1)';
+                    }
                 }, 100);
             }
         });
@@ -154,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Clignotement aléatoire toutes les 3-7 secondes
     function scheduleRandomBlink() {
+        if (eyes.length === 0) return;
+        
         const delay = 3000 + Math.random() * 4000;
         setTimeout(() => {
             randomBlink();
@@ -161,29 +177,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }, delay);
     }
     
-    scheduleRandomBlink();
+    if (eyes.length > 0) {
+        scheduleRandomBlink();
+    }
     
     // Effet de typing pour le sous-titre
     const subtitle = document.querySelector('.hero-subtitle');
-    const originalText = subtitle.textContent;
     
-    function typeWriter() {
-        subtitle.textContent = '';
-        let i = 0;
+    if (subtitle) {
+        const originalText = subtitle.textContent;
         
-        function type() {
-            if (i < originalText.length) {
-                subtitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(type, 50);
+        function typeWriter() {
+            subtitle.textContent = '';
+            let i = 0;
+            
+            function type() {
+                if (i < originalText.length) {
+                    subtitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(type, 50);
+                }
             }
+            
+            type();
         }
         
-        type();
+        // Démarrer l'effet de typing après 1 seconde
+        setTimeout(typeWriter, 1000);
     }
-    
-    // Démarrer l'effet de typing après 1 seconde
-    setTimeout(typeWriter, 1000);
     
     // Gestion du scroll fluide pour l'indicateur de scroll
     const scrollIndicator = document.querySelector('.scroll-indicator');
@@ -200,18 +221,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animation de rotation continue pour le symbole infini en arrière-plan
     const backgroundInfinity = document.querySelector('.infinity-symbol');
     
-    function rotateInfinity() {
-        let rotation = 0;
-        setInterval(() => {
-            rotation += 0.5;
-            backgroundInfinity.style.transform = `rotate(${rotation}deg)`;
-        }, 50);
+    if (backgroundInfinity) {
+        function rotateInfinity() {
+            let rotation = 0;
+            setInterval(() => {
+                rotation += 0.5;
+                backgroundInfinity.style.transform = `rotate(${rotation}deg)`;
+            }, 50);
+        }
+        
+        rotateInfinity();
     }
-    
-    rotateInfinity();
     
     // Effet de particules flottantes
     function createFloatingParticle() {
+        const backgroundAnimation = document.querySelector('.background-animation');
+        if (!backgroundAnimation) return;
+        
         const particle = document.createElement('div');
         particle.style.position = 'absolute';
         particle.style.width = '4px';
@@ -224,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         particle.style.top = '100%';
         particle.style.zIndex = '1';
         
-        document.querySelector('.background-animation').appendChild(particle);
+        backgroundAnimation.appendChild(particle);
         
         // Animation de la particule
         let position = 100;
