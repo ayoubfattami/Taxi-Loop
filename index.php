@@ -6,11 +6,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $phone = $_POST['phone'] ?? '';
     $message = $_POST['message'] ?? '';
+    $honeypot = $_POST['website'] ?? ''; // Champ honeypot anti-spam
     
+    // Protection anti-spam : si le champ honeypot est rempli, c'est un robot
+    if (!empty($honeypot)) {
+        $error_message = "Erreur lors de l'envoi du message. Veuillez réessayer.";
+    }
     // Validation des données
-    if (!empty($business_category) && !empty($full_name) && !empty($email) && !empty($phone) && !empty($message)) {
+    elseif (!empty($business_category) && !empty($full_name) && !empty($email) && !empty($phone) && !empty($message)) {
         // Configuration de l'email
-        $to = 'contact@taxiloop.ma';
+        $to = 'ayoub@lera-concept.com';
         $subject = 'Nouvelle demande de contact - Taxi Loop';
         
         // Corps de l'email
@@ -458,6 +463,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="taxi-loop-form-group">
                         <label for="message" class="taxi-loop-form-label">Demande</label>
                         <textarea id="message" name="message" class="taxi-loop-form-textarea" rows="5" required></textarea>
+                    </div>
+                    
+                    <!-- Champ honeypot anti-spam (invisible pour les utilisateurs) -->
+                    <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+                        <label for="website">Site web (ne pas remplir)</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                     </div>
                     
                     <button type="submit" class="taxi-loop-form-submit">ENVOYER</button>
