@@ -217,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <button class="btn-primary">Réserver une campagne</button>
+                    <button class="btn-primary" id="cta-reserver">Réserver une campagne</button>
                 </div>
             </div>
         </main>
@@ -493,6 +493,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== burger) {
                 menu.classList.remove('open');
                 document.body.classList.remove('menu-open');
+            }
+        });
+        // Scroll vers le formulaire quand on clique sur le bouton CTA
+        document.getElementById('cta-reserver').addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.getElementById('taxi-loop-contact-form-section');
+            if (target) {
+                target.scrollIntoView({behavior: 'smooth'});
             }
         });
     </script>
