@@ -45,9 +45,130 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Taxi Loop - Publicité Mobile Innovante</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- Navbar Responsive Styles --- */
+        .navbar {
+            width: 100%;
+            background: #111;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            height: 64px;
+        }
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .nav-menu li a:hover {
+            color: #FFD600;
+        }
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .nav-burger span {
+            display: block;
+            width: 28px;
+            height: 4px;
+            margin: 4px 0;
+            background: #fff;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        /* --- Mobile Styles --- */
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 0 16px;
+                height: 56px;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: #111;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                z-index: 9999;
+                transform: translateY(-100%);
+                transition: transform 0.3s;
+            }
+            .nav-menu.open {
+                transform: translateY(0);
+            }
+            .nav-menu li a {
+                color: #fff;
+                font-size: 1.3rem;
+            }
+            .nav-menu li a:hover {
+                color: #FFD600;
+            }
+            .nav-burger {
+                display: flex;
+            }
+            .nav-burger span {
+                background: #fff;
+            }
+        }
+        /* Prevent body scroll when menu open */
+        body.menu-open {
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <div class="hero-container">
+    <!-- Navbar OUTSIDE .hero-container for stacking context -->
+    <nav class="navbar">
+        <div class="nav-logo">TL</div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#hero-section">Accueil</a></li>
+            <li><a href="#opportunities-showcase">Comment ça marche&nbsp;?</a></li>
+            <li><a href="#taxi-loop-clients-showcase">Clients</a></li>
+            <li><a href="#taxi-loop-footer-contact">Rejoindre la boucle</a></li>
+            <li><a href="#taxi-loop-contact-form-section">Réservez une campagne</a></li>
+        </ul>
+        <button class="nav-burger" id="navBurger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="hero-container" id="hero-section">
         <div class="background-animation">
             <div class="infinity-symbol"></div>
             <div class="floating-tablets">
@@ -58,13 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         
         <header class="hero-header">
-            <nav class="navbar">
-                <div class="nav-logo">TL</div>
-                <ul class="nav-menu">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <!-- Navbar déplacée ici -->
         </header>
 
         <main class="hero-content">
@@ -127,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
     
     <!-- Section Opportunities -->
-    <section class="opportunities-showcase">
+    <section class="opportunities-showcase" id="opportunities-showcase">
         <div class="opportunities-wrapper">
             <h2 class="opportunities-main-title">Un écran,<br>mille opportunités</h2>
             
@@ -193,7 +308,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
     
     <!-- Section Clients Carrousel -->
-    <section class="taxi-loop-clients-showcase">
+    <section class="taxi-loop-clients-showcase" id="taxi-loop-clients-showcase">
         <div class="taxi-loop-clients-wrapper">
             <h2 class="taxi-loop-clients-main-title">Nos Clients</h2>
             <div class="taxi-loop-clients-carousel-container">
@@ -255,7 +370,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
     <!-- Section Footer Contact -->
-    <div class="taxi-loop-footer-contact">
+    <div class="taxi-loop-footer-contact" id="taxi-loop-footer-contact">
         <div class="taxi-loop-footer-wrapper">
             <div class="taxi-loop-footer-logo">
                 <img src="assets/images/logo-taxi-loop.png" alt="Taxi Loop Logo" class="taxi-loop-footer-logo-img">
@@ -284,15 +399,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
-
-
-
-
-
-<!-- Section Formulaire de Contact -->
-    <section class="taxi-loop-contact-form-section">
+    <!-- Section Formulaire de Contact -->
+    <section class="taxi-loop-contact-form-section" id="taxi-loop-contact-form-section">
         <div class="taxi-loop-contact-form-container">
             <div class="taxi-loop-contact-form-wrapper">
                 <?php if (isset($success_message)): ?>
@@ -356,9 +466,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 
-
-
-    
+    <script>
+        // --- Burger Menu JS ---
+        const burger = document.getElementById('navBurger');
+        const menu = document.getElementById('navMenu');
+        burger.addEventListener('click', function() {
+            menu.classList.toggle('open');
+            document.body.classList.toggle('menu-open', menu.classList.contains('open'));
+        });
+        // Close menu on link click (mobile)
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Smooth scroll
+                const targetId = this.getAttribute('href').replace('#','');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    e.preventDefault();
+                    menu.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                    target.scrollIntoView({behavior: 'smooth'});
+                }
+            });
+        });
+        // Optional: close menu on outside click
+        document.addEventListener('click', function(e) {
+            if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== burger) {
+                menu.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
