@@ -31,8 +31,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $headers .= "Reply-To: " . $email . "\r\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
         
-        // Envoi de l'email
-        if (mail($to, $subject, $email_body, $headers)) {
+        // Protection anti-spam : vérification IP proxy/VPN avec proxycheck.io
+        $user_ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
+        $api_key = 'v80608-173849-jc8400-o25w02';
+        $is_proxy = false;
+        
+        if (!empty($user_ip) && filter_var($user_ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+            // Appel à l'API proxycheck.io
+            $api_url = "http://proxycheck.io/v2/{$user_ip}?key={$api_key}&vpn=1&asn=1";
+            $context = stream_context_create([
+                'http' => [
+                    'timeout' => 5, // Timeout de 5 secondes
+                    'method' => 'GET'
+                ]
+            ]);
+            
+            $response = @file_get_contents($api_url, false, $context);
+            
+            if ($response !== false) {
+                $data = json_decode($response, true);
+                if (isset($data[$user_ip]['proxy']) && $data[$user_ip]['proxy'] === 'yes') {
+                    $is_proxy = true;
+                }
+            }
+        }
+        
+        // Si l'IP est détectée comme proxy/VPN, bloquer l'envoi
+        if ($is_proxy) {
+            $error_message = "Votre connexion semble utiliser un proxy ou VPN. Veuillez désactiver ces services et réessayer.";
+        }
+        // Envoi de l'email seulement si pas de proxy détecté
+        elseif (mail($to, $subject, $email_body, $headers)) {
             $success_message = "Votre message a été envoyé avec succès !";
         } else {
             $error_message = "Erreur lors de l'envoi du message. Veuillez réessayer.";
